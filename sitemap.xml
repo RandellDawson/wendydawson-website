@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>http://wendydawson.com/</loc>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/slide-1.jpg</image:loc>
+      <image:title>Wendy Dawson Outside Photo in Suit</image:title>
+      <image:caption>Wendy Dawson Outside Photo in Suit</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://wendydawson.com/contact</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://wendydawson.com/portfolio</loc>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/wendy_portfolio.jpg</image:loc>
+      <image:title>Wendy Dawson Outside Photo with Black Jacket and Green Sweater</image:title>
+      <image:caption>Wendy Dawson Outside Photo with Black Jacket and Green Sweater</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://wendydawson.com/affiliations</loc>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/shop.png</image:loc>
+      <image:title>Shop.org Logo</image:title>
+      <image:caption>Shop.org Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/ama.jpg</image:loc>
+      <image:title>American Marketing Association Logo</image:title>
+      <image:caption>American Marketing Association Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/toastmasters.jpg</image:loc>
+      <image:title>Toastmasters Logo</image:title>
+      <image:caption>Toastmasters Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/mtsu.png</image:loc>
+      <image:title>Middle Tennessee State University Logo</image:title>
+      <image:caption>Middle Tennessee State University Logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://wendydawson.com/resume</loc>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/wendy_resume.jpg</image:loc>
+      <image:title>Wendy Dawson Outside Photo in Suit</image:title>
+      <image:caption>Wendy Dawson Outside Photo in Suit</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/pdf.gif</image:loc>
+      <image:title>Wendy Dawson Resume</image:title>
+      <image:caption>Wendy Dawson Resume</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://wendydawson.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>http://wendydawson.com/images/wendy_about.jpg</image:loc>
+      <image:title>Wendy Dawson Outside Photo with Burgundy Top</image:title>
+      <image:caption>Wendy Dawson Outside Photo with Burgundy Top</image:caption>
+    </image:image>
+  </url>
+</urlset>
+<!--<guid value="44352da8-cac9-4ac8-8ab5-f28623c7c891" />-->
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->

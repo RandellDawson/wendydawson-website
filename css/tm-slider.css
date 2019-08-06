@@ -1,0 +1,116 @@
+* {
+	padding:0;
+	margin:0;
+}
+.slider {
+	width:940px; border-top:11px solid #3b2d2a;
+	left:10px;
+	position:absolute; top:17px; background:url(../images/banner.jpg) right 0 no-repeat;
+}
+
+.slider .prev {display:block; position:absolute; z-index:9999; top:295px; right:41px; width:29px; height:30px; border-right:1px solid #7d3a39; background:url(../images/prev.png) center center no-repeat #652f2e;
+border-radius:10px 0 0 10px;
+-moz-border-radius:10px 0 0 10px;
+-webkit-border-radius:10px 0 0 10px;
+-webkit-background-clip: padding-box;
+
+box-shadow:0 1px 0px rgba(0,0,0,0.5);
+-moz-box-shadow:0 1px 0px rgba(0,0,0,0.5);
+-webkit-box-shadow:0 1px 0px rgba(0,0,0,0.5);
+}
+.slider .prev:hover {background-color:#000;}
+
+.slider .next {display:block; position:absolute; z-index:9999; top:295px; right:11px; width:29px; height:30px; border-left:1px solid #522625; background:url(../images/next.png) center center no-repeat #652f2e;
+border-radius:0 10px 10px 0;
+-moz-border-radius:0 10px 10px 0;
+-webkit-border-radius:0 10px 10px 0;
+-webkit-background-clip: padding-box;
+
+box-shadow:0 1px 0px rgba(0,0,0,0.5);
+-moz-box-shadow:0 1px 0px rgba(0,0,0,0.5);
+-webkit-box-shadow:0 1px 0px rgba(0,0,0,0.5);
+}
+.slider .next:hover {background-color:#000;}
+
+.items {
+	display:none;
+}
+.pagination {
+	position:absolute;
+	top:0;
+	z-index:999;
+}
+.pagination li {
+	float:left;
+	margin:0 5px;
+	padding:0 5px;
+	display:block;
+	background:#000;
+}
+.pagination li.current {
+	background:#00f;
+}
+.pagination li a {
+	color:#fff;
+	width:10px;
+	height:20px;
+	display:block;
+}
+.play.paused {
+	color:#f00;
+}
+.banner {
+	width:300px;
+	height:340px;
+	position:absolute; z-index:1;
+	left:640px;
+	top:0;
+	color:#f9fafc;
+	font-size:25px;
+	line-height:36px;
+	background:url(../images/banner.jpg) 0 0 no-repeat;
+}
+
+.banner span {display:block; padding:93px 0 0 40px;}
+.banner strong {display:block; font-size:40px; line-height:1.2em;}
+
+input {
+	width:40px;
+}
+form {
+	width:710px;
+	margin:0 auto;
+}
+label {
+	display:block;
+	height:40px;
+}
+.presets {
+	position:absolute;
+	right:40px;
+	top:0;
+	margin-top:30px;
+}
+.presets li:hover {
+	text-decoration:underline;
+	cursor:pointer;
+}
+.presets li.curr {
+	color:#f00;
+}
+.progbar {
+	background:#ff0;
+	width:100%;
+	height:10px;
+	position:absolute;
+	bottom:20px;
+	z-index:999;
+}
+.numStatus {
+	position:absolute;
+	left:0;
+	bottom:0;
+	background:#000;
+	color:#fff;
+	z-index:999;
+}
