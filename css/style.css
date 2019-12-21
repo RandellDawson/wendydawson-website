@@ -246,3 +246,7 @@ hr {width:100%;}
 
 .company-name {font-size:16px;  color:#262324;}
 .image-left-margin {margin-left: 10px;}
+
+.sf-menu > li > a {
+  text-decoration: none;
+}
