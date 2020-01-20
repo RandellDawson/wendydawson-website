@@ -1,4 +1,10 @@
-@import "../css/superfish.css"; @import "../css/reset.css"; @import "../css/grid.css"; @import "../css/tm-slider.css"; @import "../css/prettyPhoto.css"; @import "../css/skin.css"; @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import "../css/superfish.css";
+@import "../css/reset.css";
+@import "../css/grid.css";
+@import "../css/tm-slider.css";
+@import "../css/prettyPhoto.css";
+@import "../css/skin.css";
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 /* Getting the new tags to behave */
 article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
@@ -217,14 +223,14 @@ time {display:block; font-size:33px; line-height:1.2em; color:#d35431;}
 
 .map iframe {width:356px; height:206px;}
 
-#form1 fieldset{display:block; width:404px;}
-#form1 label {display:block; height:60px; position:relative;}
-#form1 label.message {height:auto;}
-#form1 input {width:275px; font-size:1em; color:#bc8070; padding:16px 17px; margin:0; font-family:Arial, Helvetica, sans-serif; border:1px solid #dedede; background:#fff;}
-#form1 textarea {height:154px; overflow:auto; width:404px; font-size:1em; color:#bc8070; padding:16px 17px; margin:0; font-family:Arial, Helvetica, sans-serif; border:1px solid #dedede; background:#fff;}
-#form1 .empty, #form1 .error {display:none; color:#f00; font-size:11px; line-height:11px; position:absolute; top:17px; left:315px;}
-#form1 label.message .empty, #form1 label.message .error {left:0; top:190px;}
-#form1 .success {display:none; width:400px; color:#000; font-size:18px; line-height:1.2em; text-align:center; padding:10px; margin-bottom:20px; border:1px solid #d9d9d9; background:#f2f2f2;}
+#contact-form fieldset{display:block; width:404px;}
+#contact-form label {display:block; height:60px; position:relative;}
+#contact-form label.message {height:auto;}
+#contact-form input {width:275px; font-size:1em; color:#bc8070; padding:16px 17px; margin:0; font-family:Arial, Helvetica, sans-serif; border:1px solid #dedede; background:#fff;}
+#contact-form textarea {height:154px; overflow:auto; width:404px; font-size:1em; color:#bc8070; padding:16px 17px; margin:0; font-family:Arial, Helvetica, sans-serif; border:1px solid #dedede; background:#fff;}
+#contact-form .empty, #contact-form .error {display:none; color:#f00; font-size:11px; line-height:11px; position:absolute; top:17px; left:315px;}
+#contact-form label.message .empty, #contact-form label.message .error {left:0; top:190px;}
+#contact-form .success {display:none; width:400px; color:#000; font-size:18px; line-height:1.2em; text-align:center; padding:10px; margin-bottom:20px; border:1px solid #d9d9d9; background:#f2f2f2;}
 
 .buttons {padding-top:12px; text-align:right; overflow:hidden;}
 .buttons a {margin-left:18px; font-size:18px}
