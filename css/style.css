@@ -207,7 +207,8 @@ h3 {
   font-size: 34px;
   font-weight: 100;
   line-height: 1.5em;
-  color: #262324;
+  /* color: #262324; */
+  color: #666;
   margin: 0px 0 16px;
 }
 
@@ -218,8 +219,9 @@ h4 {
 }
 
 h3 a {
-  font-weight: 200;
-  color: #262324;
+  font-weight: 100;
+  /* color: #262324; */
+  color: #666;
 }
 
 h3 a:hover {
