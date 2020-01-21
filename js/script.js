@@ -30,7 +30,10 @@ function addPageHeader(sitePage) {
     mainContent.insertBefore(header, mainContent.firstChild);
   }
   displayPageNav();
-  document.getElementById('nav-' + sitePage).classList.add('current');
+  const navElem = document.getElementById('nav-' + sitePage);
+  if (navElem) {
+    navElem.classList.add('current');
+  }
 }
 
 function addPageFooter() {
@@ -54,6 +57,5 @@ var sitePage = location.href
   .split("/")
   .pop()
   .replace('.html', '');
-
 addPageHeader(sitePage);
 addPageFooter();
