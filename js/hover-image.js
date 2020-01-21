@@ -70,7 +70,7 @@ $(function(){
 			th.find('div').stop().animate({color:'#2c292a'}, 600);
 	});	
 
-// list-1 hover
+// job-details-list hover
 	$('.list-2 li').hover(function(){
 	  $(this).stop().animate({backgroundPosition:'6px 5px'},200)       
 	 }, function(){
