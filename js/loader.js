@@ -31,14 +31,6 @@ $(document).ready(function(){
   [
     { src: 'css/style.css', type: 'css' },
     // { src: 'js/jquery-1.6.2.min.js', type: 'js' },
-    // { src: 'js/superfish.js', type: 'js' },
-    // { src: 'js/jquery.prettyPhoto.js', type: 'js' },
-    // { src: 'js/hover-image.js', type: 'js' },
-    // { src: 'js/jquery.easing.1.3.js', type: 'js' },
-    // { src: 'js/jquery.jcarousel.min.js', type: 'js' },
-    // { src: 'js/jquery.backgroundPosition.js', type: 'js' },
-    // { src: 'js/tms.js', type: 'js' },
-    // { src: 'js/tms_presets.js', type: 'js' },
     { src: 'js/custom.js', type: 'js' },
     { src: 'https://www.googletagmanager.com/gtag/js?id=UA-115892210-1', type: 'js' },
     { src: null, type: 'js', scriptCode: gtagScript }
