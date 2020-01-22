@@ -7,11 +7,18 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 
+const htmlFiles = ['index', '404', 'about', 'affiliations', 'contact', 'portfolio', 'resume' ];
+
+const htmlPlugins = htmlFiles.map(fileName => {
+  const file = fileName + '.html';
+  return (new HtmlWebpackPlugin({ filename: file, template: file }));
+});
+  
 module.exports = {
-  entry: './script.js',
+  entry: './js/script.js',
   mode: process.env.NODE_ENV || 'production',
   output: {
-    path: path.resolve(__dirname, ''),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'script.js'
   },
   optimization: {
@@ -69,6 +76,11 @@ module.exports = {
     ]
   },
   plugins: ([
+    new CleanWebpackPlugin(),
+    ...htmlPlugins,
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    }),
     // Avoid publishing files when compilation failed:
     new webpack.NoEmitOnErrorsPlugin(),
 
