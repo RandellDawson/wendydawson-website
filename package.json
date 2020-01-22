@@ -1,0 +1,40 @@
+{
+  "name": "wendydawson",
+  "version": "1.0.0",
+  "description": "Wendy Dawson website",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "cross-env WEBPACK_ENV=dev webpack-dev-server",
+    "prestart": "npm run build",
+    "start": "http-server dist --port 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.4.1",
+    "exports-loader": "^0.6.2",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.12.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.12.4",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "author": "Randell Dawson",
+  "license": "none",
+  "homepage": "https://wendydawson.com",
+  "dependencies": {
+    "core-js": "^2.6.11",
+    "optimize-css-assets-webpack-plugin": "^5.0.3"
+  }
+}
