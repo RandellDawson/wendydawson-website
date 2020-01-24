@@ -4,7 +4,7 @@
   "description": "Wendy Dawson website",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rm -rf dist & mkdir dist & cp -r src/* dist & webpack",
     "dev": "cross-env WEBPACK_ENV=dev webpack-dev-server",
     "prestart": "npm run build",
     "start": "http-server dist --port 8080",

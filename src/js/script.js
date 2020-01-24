@@ -53,9 +53,6 @@ function addPageFooter() {
 }
 
 var mainContent = document.querySelector('.bg');
-var sitePage = location.href
-  .split("/")
-  .pop()
-  .replace('.html', '');
+var sitePage = location.href.split("/").pop().replace('.html', '');
 addPageHeader(sitePage);
 addPageFooter();
