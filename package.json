@@ -4,7 +4,7 @@
   "description": "Wendy Dawson website",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && cp -r src/* dist && webpack",
+    "build": "webpack",
     "dev": "cross-env WEBPACK_ENV=dev webpack-dev-server",
     "prestart": "npm run build",
     "start": "http-server dist --port 8080",
@@ -26,6 +26,7 @@
     "postcss-preset-env": "^6.7.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.12.4",
+    "uglify-js": "^3.7.6",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
