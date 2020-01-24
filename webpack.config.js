@@ -14,7 +14,7 @@ module.exports = {
   },
   mode: process.env.NODE_ENV || 'production',
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
   },
   optimization: {
@@ -73,13 +73,10 @@ module.exports = {
   },
   plugins: ([
     new CleanWebpackPlugin(),
-    // ...htmlPlugins,
-    // new HtmlWebpackPlugin({
-    //   template: './index.html'
-    // }),
-    // new CopyPlugin([
-    //   { from: 'src/', to: 'dist/' },
-    // ]),
+    new CopyPlugin([
+      { from: 'src/', ignore: ['js/*', 'lib/*'] },
+      { from: 'src/lib', to: 'lib' }
+    ]),
     // Avoid publishing files when compilation failed:
     new webpack.NoEmitOnErrorsPlugin(),
 
