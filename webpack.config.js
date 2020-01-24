@@ -1,9 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -70,11 +72,14 @@ module.exports = {
     ]
   },
   plugins: ([
-    // new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(),
     // ...htmlPlugins,
     // new HtmlWebpackPlugin({
     //   template: './index.html'
     // }),
+    // new CopyPlugin([
+    //   { from: 'src/', to: 'dist/' },
+    // ]),
     // Avoid publishing files when compilation failed:
     new webpack.NoEmitOnErrorsPlugin(),
 
