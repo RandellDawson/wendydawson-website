@@ -17,7 +17,7 @@ module.exports = {
   mode: process.env.NODE_ENV || 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: 'js/[name].js'
   },
   optimization: {
     minimizer: [
