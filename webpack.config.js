@@ -7,6 +7,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const UglifyJs = require('uglify-js');
+
 module.exports = {
   entry: {
     script: './src/js/script.js',
@@ -14,7 +16,7 @@ module.exports = {
   },
   mode: process.env.NODE_ENV || 'production',
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
   },
   optimization: {
@@ -74,12 +76,13 @@ module.exports = {
   plugins: ([
     new CleanWebpackPlugin(),
     // ...htmlPlugins,
-    // new HtmlWebpackPlugin({
-    //   template: './index.html'
-    // }),
-    // new CopyPlugin([
-    //   { from: 'src/', to: 'dist/' },
-    // ]),
+    new CopyPlugin([
+      { from: 'src/', ignore: ['js/*', 'lib/*']},
+      { from: 'src/lib', to: 'lib', transform(content) {
+          return UglifyJs.minify(content.toString()).code;
+        },
+      }
+    ]),
     // Avoid publishing files when compilation failed:
     new webpack.NoEmitOnErrorsPlugin(),
 
