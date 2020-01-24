@@ -16,8 +16,8 @@ function displayPageNav() {
 }
 
 function addPageHeader(sitePage) {
-  sitePage = sitePage || 'home';
-  if (sitePage !== 'home') {
+  sitePage = sitePage || 'index';
+  if (sitePage !== 'index') {
     var headerContent = `
       <div class="main">
         <div class="row-1">

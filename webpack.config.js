@@ -9,13 +9,13 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    script: './src/js/script.js',
+    index: './src/js/index.js',
     contact: './src/js/contact.js',
   },
   mode: process.env.NODE_ENV || 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: 'js/[name].js'
   },
   optimization: {
     minimizer: [
