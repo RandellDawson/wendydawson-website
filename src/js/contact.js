@@ -1,4 +1,8 @@
-$(document).ready(function () {
+import "core-js/modules/es6.promise";
+import "core-js/modules/es6.array.iterator";
+import 'whatwg-fetch';
+
+function contactFunctions () {
 
   const fields = {
     name: {
@@ -24,24 +28,24 @@ $(document).ready(function () {
   };
 
   function displayError(fieldName, errorMsg) {
-    $('.' + fieldName + ' .error').text(errorMsg);
-    $('.' + fieldName + ' .error').show();
+    document.querySelector('.' + fieldName + ' .error').textContent = errorMsg;
+    showDomElem(document.querySelector('.' + fieldName + ' .error'));
   }
 
   function initializeForm(event) {
     if (event) {
       event.preventDefault();
     }
-    $("#contact-form")[0].reset();
+    document.getElementById("contact-form").reset();
     clearMsgs();
   }
 
   function clearMsgs() {
-    $('.success').hide();
-    $('.failure').hide();
+    hideDomElem(document.querySelector('.success'));
+    hideDomElem(document.querySelector('.failure'));
     Object.keys(fields).forEach(fieldName => {
-      $('.' + fieldName + ' .error').text('');
-      $('.' + fieldName + ' .error').hide();
+      document.querySelector('.' + fieldName + ' .error').textContent = '';
+      hideDomElem(document.querySelector('.' + fieldName + ' .error'));
     });
   }
 
@@ -59,10 +63,14 @@ $(document).ready(function () {
 
   function validateForm(form) {
     clearMsgs();
-    const name = $('.name input', form).val() || null,
-      email = $('.email input', form).val() || null,
-      phone = $('.phone input', form).val() || null,
-      message = $('.message textarea', form).val() || null;
+    const nameElem = document.querySelector('.name input'),
+      emailElem = document.querySelector('.email input'),
+      phoneElem = document.querySelector('.phone input'),
+      messageElem = document.querySelector('.message textarea');
+    const name = nameElem.value || null,
+      email = emailElem.value || null,
+      phone = phoneElem.value || null,
+      message = messageElem.value  || null;
 
     let validForm = true;
     [{ name }, { email }, { phone }, { message }].forEach(field => {
@@ -79,9 +87,9 @@ $(document).ready(function () {
   function showMsg(response) {
     if (response.success) {
       initializeForm();
-      $('.success').show();
+      showDomElem(document.querySelector('.success'));
     } else {
-      $('.failure').show();
+      showDomElem(document.querySelector('.failure'));
       console.log(response.error);
     }
   }
@@ -99,20 +107,41 @@ $(document).ready(function () {
         message,
         mailer: "w",
       };
-      ;
-      $.ajax({
-        type: "POST",
-        url: mailAPIUrl,
-        dataType: "json",
-        contentType: 'application/json',
-        data: JSON.stringify(data),
-        success: showMsg
-      });
+      
+      fetch(mailAPIUrl, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          showDomElem(document.querySelector('.success'));
+        })
+        .catch(error => {
+          console.log(error);
+          showDomElem(document.querySelector('.failure'));
+        });
     }
+  }
+  
+  function showDomElem(elem) {
+    elem.style.display = 'block';
+  }
+
+  function hideDomElem(elem) {
+    elem.style.display = 'none';
   }
 
   const mailAPIUrl = 'https://apis.randydawson.com/email';
-  $('.buttons .button-submit').click(sendEmail);
-  $('.buttons .button-reset').click(initializeForm);
+  document.querySelector('.buttons .button-submit')
+    .addEventListener('click',sendEmail);
+  document.querySelector('.buttons .button-reset')
+    .addEventListener('click', initializeForm);
   initializeForm();
-});
+}
+
+export default contactFunctions;

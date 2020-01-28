@@ -9,13 +9,12 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/js/index.js',
-    contact: './src/js/contact.js',
+    index: './src/index.js',
   },
   mode: process.env.NODE_ENV || 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js'
+    filename: 'index.js'
   },
   optimization: {
     minimizer: [
@@ -23,7 +22,6 @@ module.exports = {
       new UglifyJsPlugin()
     ],
   },
-
   module: {
     rules: [
       {
@@ -74,8 +72,7 @@ module.exports = {
   plugins: ([
     new CleanWebpackPlugin(),
     new CopyPlugin([
-      { from: 'src/', ignore: ['js/*', 'lib/*'] },
-      { from: 'src/lib', to: 'lib' }
+      { from: 'src/', ignore: ['js/*'] },
     ]),
     // Avoid publishing files when compilation failed:
     new webpack.NoEmitOnErrorsPlugin(),
@@ -96,6 +93,9 @@ module.exports = {
   devServer: {
     port: process.env.PORT || 8080,
     contentBase: './src',
-    historyApiFallback: true
+    historyApiFallback: true,
+    staticOptions: {
+      extensions: ['html']
+    }
   }
 };
