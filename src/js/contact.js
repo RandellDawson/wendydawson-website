@@ -136,7 +136,7 @@ function contactFunctions () {
     elem.style.display = 'none';
   }
 
-  const mailAPIUrl = 'https://apis.randydawson.com/email';
+  const mailAPIUrl = 'https://apis.randelldawson.com/email';
   document.querySelector('.buttons .button-submit')
     .addEventListener('click',sendEmail);
   document.querySelector('.buttons .button-reset')
