@@ -1,4 +1,4 @@
-import contactFunctions from "./contact";
+import contactFunctions from "./contact.js";
 
 function pageFunctions() {
 
@@ -10,11 +10,11 @@ function pageFunctions() {
     document.querySelector('nav').innerHTML = `
     <ul class="sf-menu">
       <li class="first-item"><a id="nav-home" href="/">Home</a></li>
-      <li><a id="nav-about" href="about">About</a></li>
-      <li><a id="nav-resume" href="resume">Resume</a></li>
-      <li><a id="nav-portfolio" href="portfolio">Portfolio</a></li>
-      <li><a id="nav-affiliations"  href="affiliations">Affiliations</a></li>
-      <li class="last-item"><a id="nav-contact" href="contact">Contact</a></li>
+      <li><a id="nav-about" href="/about">About</a></li>
+      <li><a id="nav-resume" href="/resume">Resume</a></li>
+      <li><a id="nav-portfolio" href="/portfolio">Portfolio</a></li>
+      <li><a id="nav-affiliations"  href="/affiliations">Affiliations</a></li>
+      <li class="last-item"><a id="nav-contact" href="/contact">Contact</a></li>
     </ul>
   `;
   }
