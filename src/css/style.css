@@ -1223,11 +1223,11 @@ nav .sf-menu > li > a.current:hover {
     pointer-events:none;
     background:linear-gradient(90deg,
       #102a48 0%,
-      #102a48 27%,
-      rgba(16,42,72,.98) 39%,
-      rgba(16,42,72,.78) 52%,
-      rgba(16,42,72,.30) 69%,
-      rgba(16,42,72,0) 86%);
+      #102a48 24%,
+      rgba(16,42,72,.98) 32%,
+      rgba(16,42,72,.78) 43%,
+      rgba(16,42,72,.30) 56%,
+      rgba(16,42,72,0) 70%);
   }
 }
 
