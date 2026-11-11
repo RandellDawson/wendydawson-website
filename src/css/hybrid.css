@@ -456,3 +456,58 @@ nav .sf-menu > li > a.current:hover {
     margin: 0 auto 24px !important;
   }
 }
+
+
+/* COMPACT DESKTOP REDESIGN V1 — restore information density without tiny text. */
+@media (min-width: 801px) {
+  .hybrid-hero { min-height: 320px; }
+  .hybrid-hero-copy { padding: 30px clamp(30px, 4vw, 60px); }
+  .hybrid-hero h1 { font-size: clamp(34px, 3.7vw, 52px); }
+  .hybrid-section { padding-top: 30px; padding-bottom: 30px; }
+  .hybrid-section h2 { font-size: 29px; }
+  .hybrid-grid { gap: 16px; }
+  .hybrid-card { padding: 18px 20px; }
+  .hybrid-card > a:last-child { padding-top: 8px; }
+  .hybrid-cta { padding-top: 32px; padding-bottom: 32px; }
+
+  .interior-banner { padding: 20px 24px 22px; }
+  .interior-banner h1 { font-size: 34px; margin-bottom: 4px; }
+  .interior-banner p { font-size: 14px; line-height: 1.4; }
+  #content .interior-main { padding-top: 22px; padding-bottom: 20px; }
+  .interior-main .wrapper { gap: 22px; align-items: flex-start; }
+  .interior-main .grid_3 { flex: 0 0 210px; width: 210px; max-width: 210px; }
+  .interior-main h3 { font-size: 24px; margin-bottom: 12px; }
+  .interior-main h4 { font-size: 18px; margin: 18px 0 8px; }
+  .interior-main p, .interior-main li { line-height: 1.5; }
+  .interior-main .interior-section-heading:not(:first-child) { margin-top: 22px; padding-top: 18px; }
+  .interior-main .grid_8 > p { padding-bottom: 7px; }
+  .interior-affiliations { gap: 14px; }
+  #affiliations.interior-affiliations li { padding: 16px; }
+  #affiliations.interior-affiliations img { max-height: 70px; margin-bottom: 10px; }
+  .interior-form .wrapper { margin-bottom: 8px; }
+  .interior-form input, .interior-form textarea { padding: 9px 11px; }
+  .interior-form textarea { min-height: 110px; }
+}
+/* Constrain both the resume figure and the image to avoid legacy expansion. */
+.interior-main figure:has(img[src*="wendy_resume.jpg"]) {
+  float: right !important;
+  width: 130px !important;
+  max-width: 130px !important;
+  margin: 0 0 12px 20px !important;
+}
+.interior-main img[src*="wendy_resume.jpg"] {
+  display: block !important;
+  float: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+@media (max-width: 600px) {
+  .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
+    float: right !important;
+    width: 110px !important;
+    max-width: 35% !important;
+    margin: 0 0 12px 14px !important;
+  }
+}
