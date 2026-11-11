@@ -1,120 +1,70 @@
+function contactFunctions() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
 
-function contactFunctions () {
-
-  const fields = {
-    name: {
-      regex: /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/,
-      required: true,
-      errorMsg: '*This is not a valid name.'
-    },
-    email: {
-      regex: /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
-      required: true,
-      errorMsg: '*This is not a valid email address.'
-    },
-    phone: {
-      regex: /^\+?(\d[\d\-\+\(\) ]{5,}\d$)/,
-      required: false,
-      errorMsg: '*This is not a valid phone number.'
-    },
-    message: {
-      regex: /.{20}/,
-      required: true,
-      errorMsg: '*Message must contain at least 20 characters.'
-    }
+  const submit = form.querySelector(".button-submit");
+  const success = form.querySelector(".success");
+  const failure = form.querySelector(".failure");
+  const rules = {
+    name: { required: true, valid: value => value.length >= 2, message: "*Please enter your name." },
+    email: { required: true, valid: value => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value), message: "*Please enter a valid email address." },
+    phone: { required: false, valid: value => /^[+\\d() .-]{7,}$/.test(value), message: "*Please enter a valid phone number." },
+    message: { required: true, valid: value => value.length >= 20, message: "*Message must contain at least 20 characters." }
   };
 
-  function displayError(fieldName, errorMsg) {
-    document.querySelector('.' + fieldName + ' .error').textContent = errorMsg;
-    showDomElem(document.querySelector('.' + fieldName + ' .error'));
-  }
-
-  function initializeForm(event) {
-    if (event) {
-      event.preventDefault();
+  function clearMessages() {
+    success.style.display = "none";
+    failure.style.display = "none";
+    for (const name of Object.keys(rules)) {
+      const error = form.querySelector(`.${name} .error`);
+      error.textContent = "";
+      error.style.display = "none";
     }
-    document.getElementById("contact-form").reset();
-    clearMsgs();
   }
 
-  function clearMsgs() {
-    hideDomElem(document.querySelector('.success'));
-    hideDomElem(document.querySelector('.failure'));
-    Object.keys(fields).forEach(fieldName => {
-      document.querySelector('.' + fieldName + ' .error').textContent = '';
-      hideDomElem(document.querySelector('.' + fieldName + ' .error'));
-    });
-  }
-
-  function validateField(fieldName, fieldVal) {
-    if (fields[fieldName].required && !fieldVal) {
-      displayError(fieldName, '*This is a required field.');
-      return false;
+  function validate() {
+    let valid = true;
+    for (const [name, rule] of Object.entries(rules)) {
+      const value = form.elements[name].value.trim();
+      const error = form.querySelector(`.${name} .error`);
+      if ((rule.required && !value) || (value && !rule.valid(value))) {
+        error.textContent = rule.message;
+        error.style.display = "block";
+        valid = false;
+      }
     }
-    if (fieldVal && !fields[fieldName].regex.test(fieldVal)) {
-      displayError(fieldName, fields[fieldName].errorMsg);
-      return false;
-    }
-    return true;
+    return valid;
   }
 
-  function validateForm() {
-    clearMsgs();
-    const values = Object.fromEntries(
-      Object.keys(fields).map(name => [name, document.querySelector(`.${name} [name="${name}"]`).value || null])
-    );
-    const valid = Object.entries(values).map(([name, value]) => validateField(name, value)).every(Boolean);
-    return valid ? values : false;
-  }
+  form.addEventListener("reset", () => {
+    clearMessages();
+  });
 
-  function sendEmail(event) {
+  form.addEventListener("submit", async event => {
     event.preventDefault();
-    let validForm = validateForm();
+    clearMessages();
+    if (!validate()) return;
 
-    if (validForm) {
-      const { name, email, phone, message } = validForm;
-      const data = {
-        name,
-        email,
-        phone,
-        message,
-        mailer: "w",
-      };
-      
-      fetch(mailAPIUrl, {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          showDomElem(document.querySelector('.success'));
-        })
-        .catch(error => {
-          console.log(error);
-          showDomElem(document.querySelector('.failure'));
-        });
+    submit.disabled = true;
+    try {
+      const body = new URLSearchParams(new FormData(form));
+      const response = await fetch(form.getAttribute("action") || window.location.pathname, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
+      });
+      if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
+      form.reset();
+      success.style.display = "block";
+    } catch (error) {
+      console.error(error);
+      failure.style.display = "block";
+    } finally {
+      submit.disabled = false;
     }
-  }
-  
-  function showDomElem(elem) {
-    elem.style.display = 'block';
-  }
+  });
 
-  function hideDomElem(elem) {
-    elem.style.display = 'none';
-  }
-
-  const mailAPIUrl = 'https://apis.randelldawson.com/email';
-  document.querySelector('.buttons .button-submit')
-    .addEventListener('click',sendEmail);
-  document.querySelector('.buttons .button-reset')
-    .addEventListener('click', initializeForm);
-  initializeForm();
+  clearMessages();
 }
 
 export default contactFunctions;
