@@ -311,6 +311,19 @@ nav .sf-menu > li > a.current:hover {
 
 
 
+/* Match the desktop hero width to the centered page sections. */
+@media (min-width:801px) {
+  #content .hybrid-hero {
+    width:min(1120px,calc(100% - 48px));
+    max-width:1120px;
+    margin-inline:auto;
+  }
+  #content .hybrid-hero-copy {
+    padding-left:clamp(24px,3vw,42px);
+    padding-right:clamp(24px,3vw,42px);
+  }
+}
+
 /* Desktop hero gradient */
 @media (min-width:801px) {
   .hybrid-hero::before {
