@@ -418,3 +418,39 @@ header nav:has(.site-brand) .sf-menu { width:auto; }
   .hybrid-card { padding:15px; }
   .hybrid-cta { padding:28px 18px; }
 }
+
+/* Small-phone safeguards: support 320 CSS px without horizontal scrolling. */
+@media (max-width: 360px) {
+  header .main, header#header .main { width:100%; }
+  nav .sf-menu { grid-template-columns:repeat(3,minmax(0,1fr)); padding:5px 4px; gap:0; }
+  nav .sf-menu > li > a { display:block; font-size:12px; line-height:1.35; padding:10px 1px; letter-spacing:0; white-space:normal; overflow-wrap:normal; }
+  .site-brand { font-size:16px; padding:9px 12px 4px; }
+  .hybrid-hero { height:auto; min-height:340px; align-items:flex-end; }
+  .hybrid-hero-copy { padding:16px; }
+  .hybrid-eyebrow { font-size:10px; letter-spacing:.11em; line-height:1.4; }
+  .hybrid-hero h1 { font-size:clamp(27px,9vw,32px); line-height:1.12; }
+  .hybrid-hero p { font-size:13px; line-height:1.5; max-width:100%; }
+  .hybrid-btn { font-size:13px; padding:10px 12px; }
+  .hybrid-section { padding:20px 0; }
+  .hybrid-section h2 { font-size:25px; line-height:1.2; overflow-wrap:break-word; }
+  .hybrid-intro { font-size:14px; line-height:1.5; margin-bottom:18px; }
+  .hybrid-grid { grid-template-columns:minmax(0,1fr); }
+  .hybrid-card { min-width:0; padding:15px; }
+  .hybrid-card h3 { font-size:21px; }
+  .hybrid-card p { font-size:14px; line-height:1.55; }
+  #content .main, footer .main { width:calc(100% - 24px); }
+  .interior-banner { padding:13px 12px; }
+  .interior-banner h1 { font-size:25px; }
+  .interior-banner p { font-size:13px; }
+  .interior-main, .interior-main .container_12, .interior-main .wrapper,
+  .interior-main .grid_3, .interior-main .grid_6,
+  .interior-main .grid_8, .interior-main .grid_12 { min-width:0; }
+  .interior-main p, .interior-main li { overflow-wrap:anywhere; }
+  .interior-affiliations { grid-template-columns:minmax(0,1fr); }
+  #affiliations.interior-affiliations li { min-width:0; padding:14px; overflow-wrap:anywhere; }
+  #contact-form, #contact-form fieldset, #contact-form label,
+  #contact-form input, #contact-form textarea { min-width:0; max-width:100%; }
+  #contact-form .buttons { display:flex; flex-wrap:wrap; gap:8px; }
+  #contact-form .buttons a { margin:0; }
+  footer { padding:18px 0; }
+}
