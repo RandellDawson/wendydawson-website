@@ -274,7 +274,7 @@ nav .sf-menu > li > a.current:hover {
 }
 
 
-/* WENDY HERO GRADIENT V1 */
+/* Desktop hero photo placement */
 /* Smooth navy gradient blending into Wendy's photograph. */
 
 @media (min-width: 801px) {
@@ -299,22 +299,6 @@ nav .sf-menu > li > a.current:hover {
     object-position: 55% 24%;
   }
 
-  .hybrid-hero::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      #102a48 0%,
-      #102a48 27%,
-      rgba(16, 42, 72, 0.96) 36%,
-      rgba(16, 42, 72, 0.76) 47%,
-      rgba(16, 42, 72, 0.38) 59%,
-      rgba(16, 42, 72, 0) 75%
-    );
-  }
 
   .hybrid-hero-copy {
     position: relative;
@@ -324,17 +308,10 @@ nav .sf-menu > li > a.current:hover {
   }
 }
 
-/* Preserve the existing mobile layout. */
-@media (max-width: 800px) {
-  .hybrid-hero::before {
-    content: none;
-  }
-}
 
 
 
-/* Keep the navy-to-photo blend continuous at every desktop width.
-   The image remains capped so wider screens do not crop Wendy's shoulders. */
+/* Desktop hero gradient */
 @media (min-width:801px) {
   .hybrid-hero::before {
     background:linear-gradient(90deg,
