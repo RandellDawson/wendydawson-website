@@ -58,37 +58,13 @@ function contactFunctions () {
     return true;
   }
 
-  function validateForm(form) {
+  function validateForm() {
     clearMsgs();
-    const nameElem = document.querySelector('.name input'),
-      emailElem = document.querySelector('.email input'),
-      phoneElem = document.querySelector('.phone input'),
-      messageElem = document.querySelector('.message textarea');
-    const name = nameElem.value || null,
-      email = emailElem.value || null,
-      phone = phoneElem.value || null,
-      message = messageElem.value  || null;
-
-    let validForm = true;
-    [{ name }, { email }, { phone }, { message }].forEach(field => {
-      const prop = Object.keys(field)[0];
-      const value = field[prop];
-      if (!validateField(prop, value)) {
-        validForm = false;
-      }
-    });
-
-    return validForm ? { name, email, phone, message } : false;
-  }
-
-  function showMsg(response) {
-    if (response.success) {
-      initializeForm();
-      showDomElem(document.querySelector('.success'));
-    } else {
-      showDomElem(document.querySelector('.failure'));
-      console.log(response.error);
-    }
+    const values = Object.fromEntries(
+      Object.keys(fields).map(name => [name, document.querySelector(`.${name} [name="${name}"]`).value || null])
+    );
+    const valid = Object.entries(values).map(([name, value]) => validateField(name, value)).every(Boolean);
+    return valid ? values : false;
   }
 
   function sendEmail(event) {
