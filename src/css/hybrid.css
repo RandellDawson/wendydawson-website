@@ -456,3 +456,41 @@ header nav:has(.site-brand) .sf-menu { width:auto; }
   #contact-form .buttons a { margin:0; }
   footer { padding:18px 0; }
 }
+
+/* Mobile hero: photograph and copy are separate for reliable text contrast. */
+@media (max-width:800px) {
+  .hybrid-hero {
+    display:flex;
+    flex-direction:column-reverse;
+    align-items:stretch;
+    height:auto;
+    min-height:0;
+    background:#102a48;
+  }
+  .hybrid-hero::before { content:none; }
+  .hybrid-hero-photo {
+    position:static;
+    z-index:auto;
+    display:block;
+    width:100%;
+    height:clamp(185px,45vw,300px);
+    min-height:0;
+    max-height:none;
+    object-fit:cover;
+    object-position:center 20%;
+  }
+  .hybrid-hero-copy {
+    position:relative;
+    z-index:auto;
+    width:100%;
+    padding:22px 20px 24px;
+  }
+  .hybrid-hero h1 { color:#fff; }
+  .hybrid-hero p { color:#f0f4f8; font-size:clamp(14px,2.1vw,16px); }
+  .hybrid-eyebrow { color:#f0ce8c; }
+}
+@media (max-width:360px) {
+  .hybrid-hero-photo { height:185px; }
+  .hybrid-hero-copy { padding:17px 16px 20px; }
+  .hybrid-hero p { font-size:13px; }
+}
