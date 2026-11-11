@@ -292,7 +292,7 @@ nav .sf-menu > li > a.current:hover {
     z-index: -2;
     inset: 0 0 0 auto;
     display: block;
-    width: 70%;
+    width: min(70%, 770px);
     height: 100%;
     min-height: 0;
     object-fit: cover;
