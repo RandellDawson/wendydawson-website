@@ -6,8 +6,11 @@ function pageFunctions() {
     return '&copy;' + (new Date().getFullYear());
   }
 
-  function displayPageNav() {
-    document.querySelector('nav').innerHTML = `
+  function displayPageNav(sitePage) {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    nav.innerHTML = `
+    ${sitePage === "index" ? "" : '<span class="site-brand">Wendy Dawson</span>'}
     <ul class="sf-menu">
       <li class="first-item"><a id="nav-home" href="/">Home</a></li>
       <li><a id="nav-about" href="/about">About</a></li>
@@ -33,7 +36,7 @@ function pageFunctions() {
       header.innerHTML = headerContent;
       mainContent.insertBefore(header, mainContent.firstChild);
     }
-    displayPageNav();
+    displayPageNav(sitePage);
     const navElem = document.getElementById('nav-' + sitePage);
     if (navElem) {
       navElem.classList.add('current');
@@ -57,7 +60,8 @@ function pageFunctions() {
   }
 
   var mainContent = document.querySelector('.bg');
-  var sitePage = location.href.split("/").pop().replace('.html', '');
+  var sitePage = location.pathname.split('/').filter(Boolean).pop() || 'index';
+  sitePage = sitePage.replace(/\.html$/, '');
   addPageHeader(sitePage);
   addPageFooter();
 
