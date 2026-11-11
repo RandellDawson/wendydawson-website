@@ -58,7 +58,7 @@ footer .main { font-size:14px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 
-/* MOBILE REFINEMENT V2 */
+/* Legacy grid and navigation compatibility */
 /* Neutralize the old Superfish fixed-width navigation and 960px grid. */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { width: 100%; max-width: 100%; overflow-x: clip; }
@@ -97,7 +97,6 @@ nav .sf-menu > li > a.current,
 nav .sf-menu > li > a.current:hover {
   color: #e5c78b !important;
 }
-#content .container_12 { width: 100%; }
 #content .wrapper { overflow: visible; }
 #content .container_12::after,
 #content .wrapper::after { content: ""; display: block; clear: both; }
@@ -190,13 +189,7 @@ nav .sf-menu > li > a.current:hover {
   #contact-form .buttons a { margin: 0 20px 0 0; }
   #affiliations li.left, #affiliations li.right { float: none; width: 100%; }
 }
-@media (max-width: 360px) {
-  nav .sf-menu > li > a { font-size: 12px; padding: 11px 2px; }
-  .hybrid-hero-copy { padding: 28px 18px; }
-}
-
-
-/* HOMEPAGE ICONS V1 */
+/* Homepage card icons */
 .hybrid-card-icon {
   display: grid;
   place-items: center;
@@ -213,7 +206,7 @@ nav .sf-menu > li > a.current:hover {
   .hybrid-card-icon svg { width: 28px; height: 28px; }
 }
 
-/* INTERIOR PAGE REDESIGN V1 */
+/* Interior pages */
 .interior-banner { background:linear-gradient(115deg,#102137,#233d58); color:#fff; padding:58px 24px 62px; }
 .interior-banner-inner { max-width:1080px; margin:auto; }
 .interior-eyebrow { display:block; color:#d6b879; letter-spacing:.19em; font-size:12px; font-weight:750; margin-bottom:14px; }
@@ -342,7 +335,7 @@ nav .sf-menu > li > a.current:hover {
   }
 }
 
-/* FINAL COMPACT LAYOUT — consolidated photo and density adjustments. */
+/* Compact desktop and interior layouts */
 .site-brand { color:#fff; font-family:Georgia,serif; font-size:18px; font-weight:700; white-space:nowrap; }
 header nav:has(.site-brand) { display:flex; align-items:center; justify-content:space-between; gap:16px; }
 header nav:has(.site-brand) .sf-menu { width:auto; }
