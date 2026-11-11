@@ -498,3 +498,17 @@ header nav:has(.site-brand) .sf-menu { width:auto; }
     margin-right:auto;
   }
 }
+
+/* Footer alignment: use the same centered width as the main page content. */
+footer .footer-inner {
+  width:min(1120px,calc(100% - 48px));
+  margin-inline:auto;
+  text-align:center;
+  line-height:1.5;
+}
+@media (max-width:800px) {
+  footer .footer-inner { width:calc(100% - 32px); }
+}
+@media (max-width:360px) {
+  footer .footer-inner { width:calc(100% - 24px); }
+}
