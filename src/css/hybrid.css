@@ -330,3 +330,129 @@ nav .sf-menu > li > a.current:hover {
     content: none;
   }
 }
+
+
+/* INTERIOR PHOTO CONSISTENCY V2 */
+/* Applies only to interior pages, not the homepage. */
+
+/* Standardize the content layout. */
+.interior-main {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.interior-main .wrapper {
+  align-items: flex-start;
+}
+
+/* About and Portfolio: smaller photos on the right. */
+.interior-main .grid_3 {
+  flex: 0 0 240px;
+  width: 240px;
+  max-width: 240px;
+}
+
+.interior-main .grid_3 figure {
+  width: 100%;
+  margin: 0;
+}
+
+.interior-main .grid_3 figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Resume: compact headshot in upper-right corner. */
+.interior-main img[src*="wendy_resume.jpg"] {
+  display: block;
+  float: right;
+  width: 200px;
+  max-width: 35%;
+  height: auto;
+  margin: 0 0 24px 32px;
+  border-radius: 8px;
+}
+
+/* Resume: allow the text to flow beside the photo. */
+.interior-main figure:has(img[src*="wendy_resume.jpg"]) {
+  float: right;
+  width: 200px;
+  max-width: 35%;
+  margin: 0 0 24px 32px;
+}
+
+.interior-main figure:has(img[src*="wendy_resume.jpg"]) img {
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Contact: keep its existing image but limit its size. */
+.interior-main img[src*="contact.jpg"] {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Mobile: stack photos consistently below the content. */
+@media (max-width: 800px) {
+  .interior-main .grid_3 {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12px;
+  }
+
+  .interior-main .grid_3 figure img {
+    width: 220px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
+    float: none;
+    width: 180px;
+    max-width: 100%;
+    margin: 0 auto 24px;
+  }
+
+  .interior-main img[src*="contact.jpg"] {
+    max-width: 220px;
+  }
+}
+
+
+/* RESUME PHOTO FIX V3 */
+
+/* Override legacy full-width image and figure styling. */
+.interior-main figure:has(img[src*="wendy_resume.jpg"]) {
+  display: block !important;
+  float: right !important;
+  width: 180px !important;
+  max-width: 180px !important;
+  margin: 0 0 20px 28px !important;
+  padding: 0 !important;
+}
+
+.interior-main img[src*="wendy_resume.jpg"] {
+  display: block !important;
+  float: none !important;
+  width: 180px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  object-fit: contain;
+}
+
+/* On narrow screens, center the smaller photograph. */
+@media (max-width: 600px) {
+  .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
+    float: none !important;
+    margin: 0 auto 24px !important;
+  }
+}
