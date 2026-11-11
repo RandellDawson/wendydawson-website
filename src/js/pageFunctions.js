@@ -34,7 +34,7 @@ function pageFunctions() {
   }
 
   const footer = document.createElement("footer");
-  footer.innerHTML = `<div class="main"><div class="container_12"><div class="wrapper"><div class="grid_12">&copy;${new Date().getFullYear()} WendyDawson.com</div></div></div></div>`;
+  footer.innerHTML = `<div class="main footer-inner">&copy; ${new Date().getFullYear()} WendyDawson.com</div>`;
   mainContent.appendChild(footer);
 
   if (sitePage === "contact") contactFunctions();
