@@ -17,12 +17,14 @@
 <div class="wrapper">
 <div class="grid_6">
 
-<form action="" class="interior-form" id="contact-form">
-<div class="success">
+<form action="/contact" method="POST" class="interior-form" id="contact-form" name="wendy-contact" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="wendy-contact"/>
+<p hidden><label>Do not fill this out: <input name="bot-field"/></label></p>
+<div class="success" role="status" aria-live="polite">
                   Contact form submitted!<br/>
 <strong>I will be in touch soon.</strong>
 </div>
-<div class="failure">
+<div class="failure" role="alert">
                   Form submission error!<br/>
 <strong>Please try again.</strong>
 </div>
@@ -30,13 +32,13 @@
 <div class="wrapper">
 <span class="col1">Name:</span>
 <label class="name">
-<span class="bg"><input class="input form-field" name="name" type="text" value=""/></span><span class="error"></span>
+<span class="bg"><input class="input form-field" name="name" type="text" required value=""/></span><span class="error"></span>
 </label>
 </div>
 <div class="wrapper">
 <span class="col1">Email:</span>
 <label class="email">
-<span class="bg"><input class="input form-field" name="email" type="text" value=""/></span><span class="error"></span>
+<span class="bg"><input class="input form-field" name="email" type="email" required value=""/></span><span class="error"></span>
 </label>
 </div>
 <div class="wrapper">
@@ -48,10 +50,10 @@
 <div class="wrapper">
 <span class="col1">Message:</span>
 <label class="message">
-<span class="bg"><textarea class="form-field" cols="50" name="message" rows="5" value=""></textarea></span><br/><br/><span class="error"></span>
+<span class="bg"><textarea class="form-field" cols="50" name="message" rows="5" required value=""></textarea></span><br/><br/><span class="error"></span>
 </label>
 </div>
-<div class="buttons"><a class="link button-submit" href="">Send</a> <a class="link button-reset" href="">Clear</a></div>
+<div class="buttons"><button class="link button-submit" type="submit">Send</button> <button class="link button-reset" type="reset">Clear</button></div>
 </fieldset>
 </form>
 </div>
