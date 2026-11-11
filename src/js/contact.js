@@ -7,8 +7,8 @@ function contactFunctions() {
   const failure = form.querySelector(".failure");
   const rules = {
     name: { required: true, valid: value => value.length >= 2, message: "*Please enter your name." },
-    email: { required: true, valid: value => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value), message: "*Please enter a valid email address." },
-    phone: { required: false, valid: value => /^[+\\d() .-]{7,}$/.test(value), message: "*Please enter a valid phone number." },
+    email: { required: true, valid: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value), message: "*Please enter a valid email address." },
+    phone: { required: false, valid: value => /^[+\d() .-]{7,}$/.test(value), message: "*Please enter a valid phone number." },
     message: { required: true, valid: value => value.length >= 20, message: "*Message must contain at least 20 characters." }
   };
 
