@@ -333,6 +333,20 @@ nav .sf-menu > li > a.current:hover {
 
 
 
+/* Keep the navy-to-photo blend continuous at every desktop width.
+   The image remains capped so wider screens do not crop Wendy's shoulders. */
+@media (min-width:801px) {
+  .hybrid-hero::before {
+    background:linear-gradient(90deg,
+      #102a48 0%,
+      #102a48 27%,
+      rgba(16,42,72,.98) 39%,
+      rgba(16,42,72,.78) 52%,
+      rgba(16,42,72,.30) 69%,
+      rgba(16,42,72,0) 86%);
+  }
+}
+
 /* FINAL COMPACT LAYOUT — consolidated photo and density adjustments. */
 .site-brand { color:#fff; font-family:Georgia,serif; font-size:18px; font-weight:700; white-space:nowrap; }
 header nav:has(.site-brand) { display:flex; align-items:center; justify-content:space-between; gap:16px; }
