@@ -44,8 +44,6 @@ footer .main { font-size:14px; }
 .hybrid-cta p { color:#e1e7ed; font-size:18px; }
 /* Shared responsive adjustments for existing interior pages */
 @media(max-width:800px) {
- .hybrid-hero { grid-template-columns:1fr; }
- .hybrid-hero-photo { max-height:440px; }
  .hybrid-grid { grid-template-columns:1fr; }
  .main { width:calc(100% - 32px); }
  #content .grid_4, #content .grid_6, #content .grid_8, #content .grid_12 { width:100%; float:none; margin:0 0 24px; }
@@ -126,18 +124,8 @@ nav .sf-menu > li > a.current:hover {
     padding: 12px 4px;
     overflow-wrap: anywhere;
   }
-  .hybrid-hero { display: flex; flex-direction: column; min-height: 0; }
-  .hybrid-hero-copy { padding: 34px 22px 32px; }
   .hybrid-hero h1 { font-size: clamp(36px, 9vw, 54px); margin: 12px 0; }
   .hybrid-hero p { font-size: 16px; line-height: 1.6; }
-  .hybrid-hero-photo {
-    display: block;
-    width: 100%;
-    height: clamp(260px, 80vw, 440px);
-    min-height: 0;
-    object-fit: cover;
-    object-position: center 22%;
-  }
   .hybrid-section { padding: 46px 0; }
   .hybrid-section h2 { font-size: clamp(26px, 7vw, 34px); }
   .hybrid-intro { font-size: 16px; margin-bottom: 26px; }
@@ -395,10 +383,7 @@ header nav:has(.site-brand) .sf-menu { width:auto; }
   .interior-main .grid_3 figure img { width:185px; max-width:100%; margin:0 auto; }
   .interior-main figure:has(img[src*="wendy_resume.jpg"]) { float:right; width:110px; max-width:35%; margin:0 0 12px 14px; }
   .interior-main img[src*="contact.jpg"] { max-width:185px; }
-  .hybrid-hero { position:relative; display:flex; min-height:280px; height:280px; isolation:isolate; align-items:flex-end; }
-  .hybrid-hero-photo { position:absolute; z-index:-2; inset:0; width:100%; height:100%; max-height:none; object-fit:cover; object-position:center 22%; }
-  .hybrid-hero::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(0deg,#102a48 0%,rgba(16,42,72,.95) 37%,rgba(16,42,72,.25) 85%,transparent); }
-  .hybrid-hero-copy { position:relative; z-index:1; width:100%; padding:17px 18px; }
+  .hybrid-hero { position:relative; isolation:isolate; }
   .hybrid-hero h1 { font-size:32px; margin:7px 0; }
   .hybrid-hero p { font-size:12px; line-height:1.5; }
   .hybrid-btn { margin-top:10px; padding:10px 14px; }
@@ -413,10 +398,6 @@ header nav:has(.site-brand) .sf-menu { width:auto; }
   nav .sf-menu { grid-template-columns:repeat(3,minmax(0,1fr)); padding:5px 4px; gap:0; }
   nav .sf-menu > li > a { display:block; font-size:12px; line-height:1.35; padding:10px 1px; letter-spacing:0; white-space:normal; overflow-wrap:normal; }
   .site-brand { font-size:16px; padding:9px 12px 4px; }
-  .hybrid-hero { display:flex; flex-direction:column-reverse; height:auto; min-height:0; align-items:stretch; background:#102a48; }
-  .hybrid-hero::before { content:none; }
-  .hybrid-hero-photo { position:static; z-index:auto; display:block; width:100%; height:185px; min-height:0; max-height:none; object-fit:cover; object-position:center 20%; }
-  .hybrid-hero-copy { position:relative; z-index:auto; width:100%; padding:17px 16px 20px; }
   .hybrid-eyebrow { font-size:10px; letter-spacing:.11em; line-height:1.4; }
   .hybrid-hero h1 { font-size:clamp(27px,9vw,32px); line-height:1.12; }
   .hybrid-hero p { font-size:13px; line-height:1.5; max-width:100%; }
