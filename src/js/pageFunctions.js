@@ -1,74 +1,43 @@
 import contactFunctions from "./contact.js";
 
+const pages = [
+  ["home", "Home", "/"],
+  ["about", "About", "/about"],
+  ["resume", "Resume", "/resume"],
+  ["portfolio", "Portfolio", "/portfolio"],
+  ["affiliations", "Affiliations", "/affiliations"],
+  ["contact", "Contact", "/contact"]
+];
+
 function pageFunctions() {
+  const mainContent = document.querySelector(".bg");
+  if (!mainContent) return;
 
-  function displayCopyright() {
-    return '&copy;' + (new Date().getFullYear());
+  const path = window.location.pathname.split("/").filter(Boolean).pop() || "index";
+  const sitePage = path.replace(/\.html$/, "") || "index";
+  const isHome = sitePage === "index" || sitePage === "home";
+
+  if (!isHome) {
+    const header = document.createElement("header");
+    header.innerHTML = '<div class="main"><div class="row-1"><nav aria-label="Main navigation"></nav></div></div>';
+    mainContent.prepend(header);
   }
 
-  function displayPageNav(sitePage) {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-    nav.innerHTML = `
-    ${sitePage === "index" ? "" : '<span class="site-brand">Wendy Dawson</span>'}
-    <ul class="sf-menu">
-      <li class="first-item"><a id="nav-home" href="/">Home</a></li>
-      <li><a id="nav-about" href="/about">About</a></li>
-      <li><a id="nav-resume" href="/resume">Resume</a></li>
-      <li><a id="nav-portfolio" href="/portfolio">Portfolio</a></li>
-      <li><a id="nav-affiliations"  href="/affiliations">Affiliations</a></li>
-      <li class="last-item"><a id="nav-contact" href="/contact">Contact</a></li>
-    </ul>
-  `;
+  const nav = mainContent.querySelector("header nav");
+  if (nav) {
+    const links = pages.map(([id, label, href], index) => {
+      const active = id === (isHome ? "home" : sitePage) ? ' class="current" aria-current="page"' : "";
+      const itemClass = index === 0 ? ' class="first-item"' : index === pages.length - 1 ? ' class="last-item"' : "";
+      return `<li${itemClass}><a id="nav-${id}" href="${href}"${active}>${label}</a></li>`;
+    }).join("");
+    nav.innerHTML = `${isHome ? "" : '<span class="site-brand">Wendy Dawson</span>'}<ul class="sf-menu">${links}</ul>`;
   }
 
-  function addPageHeader(sitePage) {
-    sitePage = sitePage || 'index';
-    if (sitePage !== 'index') {
-      var headerContent = `
-      <div class="main">
-        <div class="row-1">
-          <nav></nav>
-        </div>
-      </div>
-    `;
-      var header = document.createElement('header');
-      header.innerHTML = headerContent;
-      mainContent.insertBefore(header, mainContent.firstChild);
-    }
-    displayPageNav(sitePage);
-    const navElem = document.getElementById('nav-' + sitePage);
-    if (navElem) {
-      navElem.classList.add('current');
-    }
-  }
+  const footer = document.createElement("footer");
+  footer.innerHTML = `<div class="main"><div class="container_12"><div class="wrapper"><div class="grid_12">&copy;${new Date().getFullYear()} WendyDawson.com</div></div></div></div>`;
+  mainContent.appendChild(footer);
 
-  function addPageFooter() {
-    var footer = document.createElement('footer');
-    footer.innerHTML = `
-    <div class="main">
-      <div class="container_12">
-        <div class="wrapper">
-          <div class="grid_12">
-            ${displayCopyright()} WendyDawson.com <br>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-    mainContent.appendChild(footer);
-  }
-
-  var mainContent = document.querySelector('.bg');
-  var sitePage = location.pathname.split('/').filter(Boolean).pop() || 'index';
-  sitePage = sitePage.replace(/\.html$/, '');
-  addPageHeader(sitePage);
-  addPageFooter();
-
-  if (sitePage === 'contact') {
-    contactFunctions();
-  }
-
+  if (sitePage === "contact") contactFunctions();
 }
 
 export default pageFunctions;
