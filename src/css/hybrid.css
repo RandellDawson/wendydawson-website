@@ -332,182 +332,75 @@ nav .sf-menu > li > a.current:hover {
 }
 
 
-/* INTERIOR PHOTO CONSISTENCY V2 */
-/* Applies only to interior pages, not the homepage. */
 
-/* Standardize the content layout. */
-.interior-main {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.interior-main .wrapper {
-  align-items: flex-start;
-}
-
-/* About and Portfolio: smaller photos on the right. */
-.interior-main .grid_3 {
-  flex: 0 0 240px;
-  width: 240px;
-  max-width: 240px;
-}
-
-.interior-main .grid_3 figure {
-  width: 100%;
-  margin: 0;
-}
-
-.interior-main .grid_3 figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Resume: compact headshot in upper-right corner. */
-.interior-main img[src*="wendy_resume.jpg"] {
-  display: block;
-  float: right;
-  width: 200px;
-  max-width: 35%;
-  height: auto;
-  margin: 0 0 24px 32px;
-  border-radius: 8px;
-}
-
-/* Resume: allow the text to flow beside the photo. */
+/* FINAL COMPACT LAYOUT — consolidated photo and density adjustments. */
+.site-brand { color:#fff; font-family:Georgia,serif; font-size:18px; font-weight:700; white-space:nowrap; }
+header nav:has(.site-brand) { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+header nav:has(.site-brand) .sf-menu { width:auto; }
+.interior-eyebrow { display:none; }
+.interior-main { max-width:1120px; margin:0 auto; }
+.interior-main .wrapper { align-items:flex-start; }
+.interior-main .grid_3 { flex:0 0 210px; width:210px; max-width:210px; }
+.interior-main .grid_3 figure { width:100%; margin:0; }
+.interior-main .grid_3 figure img { display:block; width:100%; height:auto; }
 .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
-  float: right;
-  width: 200px;
-  max-width: 35%;
-  margin: 0 0 24px 32px;
+  display:block; float:right; width:130px; max-width:130px;
+  margin:0 0 12px 20px; padding:0;
 }
-
 .interior-main figure:has(img[src*="wendy_resume.jpg"]) img {
-  float: none;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
+  display:block; float:none; width:100%; max-width:100%; height:auto; margin:0;
 }
-
-/* Contact: keep its existing image but limit its size. */
-.interior-main img[src*="contact.jpg"] {
-  display: block;
-  width: 100%;
-  max-width: 240px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 8px;
+.interior-main img[src*="contact.jpg"] { display:block; width:100%; max-width:220px; height:auto; margin:0 auto; }
+@media (min-width:801px) {
+  header .row-1,header#header .row-1 { min-height:52px; }
+  nav .sf-menu { padding:5px 0; }
+  .hybrid-hero { min-height:320px; }
+  .hybrid-hero-copy { padding:30px clamp(30px,4vw,60px); }
+  .hybrid-hero h1 { font-size:clamp(34px,3.7vw,52px); }
+  .hybrid-section { padding:30px 0; }
+  .hybrid-section h2 { font-size:29px; }
+  .hybrid-intro { margin-bottom:20px; font-size:15px; }
+  .hybrid-grid { gap:16px; }
+  .hybrid-card { padding:18px 20px; }
+  .hybrid-card > a:last-child { padding-top:8px; }
+  .hybrid-cta { padding:32px 24px; }
+  .interior-banner { padding:20px 24px 22px; }
+  .interior-banner h1 { font-size:34px; margin-bottom:4px; }
+  .interior-banner p { font-size:14px; line-height:1.4; }
+  #content .interior-main { padding-top:22px; padding-bottom:20px; }
+  .interior-main .wrapper { gap:22px; }
+  .interior-main h3 { font-size:24px; margin-bottom:12px; }
+  .interior-main h4 { font-size:18px; margin:18px 0 8px; }
+  .interior-main p,.interior-main li { line-height:1.5; }
+  .interior-main .interior-section-heading:not(:first-child) { margin-top:22px; padding-top:18px; }
+  .interior-main .grid_8 > p { padding-bottom:7px; }
+  .interior-affiliations { gap:14px; }
+  #affiliations.interior-affiliations li { padding:16px; }
+  #affiliations.interior-affiliations img { max-height:70px; margin-bottom:10px; }
+  .interior-form .wrapper { margin-bottom:8px; }
+  .interior-form input,.interior-form textarea { padding:9px 11px; }
+  .interior-form textarea { min-height:110px; }
 }
-
-/* Mobile: stack photos consistently below the content. */
-@media (max-width: 800px) {
-  .interior-main .grid_3 {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 12px;
-  }
-
-  .interior-main .grid_3 figure img {
-    width: 220px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
-    float: none;
-    width: 180px;
-    max-width: 100%;
-    margin: 0 auto 24px;
-  }
-
-  .interior-main img[src*="contact.jpg"] {
-    max-width: 220px;
-  }
-}
-
-
-/* RESUME PHOTO FIX V3 */
-
-/* Override legacy full-width image and figure styling. */
-.interior-main figure:has(img[src*="wendy_resume.jpg"]) {
-  display: block !important;
-  float: right !important;
-  width: 180px !important;
-  max-width: 180px !important;
-  margin: 0 0 20px 28px !important;
-  padding: 0 !important;
-}
-
-.interior-main img[src*="wendy_resume.jpg"] {
-  display: block !important;
-  float: none !important;
-  width: 180px !important;
-  max-width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-  object-fit: contain;
-}
-
-/* On narrow screens, center the smaller photograph. */
-@media (max-width: 600px) {
-  .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
-    float: none !important;
-    margin: 0 auto 24px !important;
-  }
-}
-
-
-/* COMPACT DESKTOP REDESIGN V1 — restore information density without tiny text. */
-@media (min-width: 801px) {
-  .hybrid-hero { min-height: 320px; }
-  .hybrid-hero-copy { padding: 30px clamp(30px, 4vw, 60px); }
-  .hybrid-hero h1 { font-size: clamp(34px, 3.7vw, 52px); }
-  .hybrid-section { padding-top: 30px; padding-bottom: 30px; }
-  .hybrid-section h2 { font-size: 29px; }
-  .hybrid-grid { gap: 16px; }
-  .hybrid-card { padding: 18px 20px; }
-  .hybrid-card > a:last-child { padding-top: 8px; }
-  .hybrid-cta { padding-top: 32px; padding-bottom: 32px; }
-
-  .interior-banner { padding: 20px 24px 22px; }
-  .interior-banner h1 { font-size: 34px; margin-bottom: 4px; }
-  .interior-banner p { font-size: 14px; line-height: 1.4; }
-  #content .interior-main { padding-top: 22px; padding-bottom: 20px; }
-  .interior-main .wrapper { gap: 22px; align-items: flex-start; }
-  .interior-main .grid_3 { flex: 0 0 210px; width: 210px; max-width: 210px; }
-  .interior-main h3 { font-size: 24px; margin-bottom: 12px; }
-  .interior-main h4 { font-size: 18px; margin: 18px 0 8px; }
-  .interior-main p, .interior-main li { line-height: 1.5; }
-  .interior-main .interior-section-heading:not(:first-child) { margin-top: 22px; padding-top: 18px; }
-  .interior-main .grid_8 > p { padding-bottom: 7px; }
-  .interior-affiliations { gap: 14px; }
-  #affiliations.interior-affiliations li { padding: 16px; }
-  #affiliations.interior-affiliations img { max-height: 70px; margin-bottom: 10px; }
-  .interior-form .wrapper { margin-bottom: 8px; }
-  .interior-form input, .interior-form textarea { padding: 9px 11px; }
-  .interior-form textarea { min-height: 110px; }
-}
-/* Constrain both the resume figure and the image to avoid legacy expansion. */
-.interior-main figure:has(img[src*="wendy_resume.jpg"]) {
-  float: right !important;
-  width: 130px !important;
-  max-width: 130px !important;
-  margin: 0 0 12px 20px !important;
-}
-.interior-main img[src*="wendy_resume.jpg"] {
-  display: block !important;
-  float: none !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-}
-@media (max-width: 600px) {
-  .interior-main figure:has(img[src*="wendy_resume.jpg"]) {
-    float: right !important;
-    width: 110px !important;
-    max-width: 35% !important;
-    margin: 0 0 12px 14px !important;
-  }
+@media (max-width:800px) {
+  header nav:has(.site-brand) { display:block; }
+  .site-brand { display:block; padding:11px 14px 7px; font-size:17px; }
+  header nav:has(.site-brand) .sf-menu { width:100%; }
+  .interior-banner { padding:15px 18px; }
+  .interior-banner h1 { font-size:26px; margin:3px 0; }
+  .interior-banner p { font-size:12px; line-height:1.4; }
+  #content .interior-main { padding-top:17px; }
+  .interior-main .grid_3 { width:100%; max-width:100%; margin-top:12px; }
+  .interior-main .grid_3 figure img { width:185px; max-width:100%; margin:0 auto; }
+  .interior-main figure:has(img[src*="wendy_resume.jpg"]) { float:right; width:110px; max-width:35%; margin:0 0 12px 14px; }
+  .interior-main img[src*="contact.jpg"] { max-width:185px; }
+  .hybrid-hero { position:relative; display:flex; min-height:280px; height:280px; isolation:isolate; align-items:flex-end; }
+  .hybrid-hero-photo { position:absolute; z-index:-2; inset:0; width:100%; height:100%; max-height:none; object-fit:cover; object-position:center 22%; }
+  .hybrid-hero::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(0deg,#102a48 0%,rgba(16,42,72,.95) 37%,rgba(16,42,72,.25) 85%,transparent); }
+  .hybrid-hero-copy { position:relative; z-index:1; width:100%; padding:17px 18px; }
+  .hybrid-hero h1 { font-size:32px; margin:7px 0; }
+  .hybrid-hero p { font-size:12px; line-height:1.5; }
+  .hybrid-btn { margin-top:10px; padding:10px 14px; }
+  .hybrid-section { padding:22px 0; }
+  .hybrid-card { padding:15px; }
+  .hybrid-cta { padding:28px 18px; }
 }
